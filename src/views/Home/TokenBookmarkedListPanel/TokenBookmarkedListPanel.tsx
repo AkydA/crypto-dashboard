@@ -18,8 +18,6 @@ export const TokenBookmarkedListPanel = () => {
   const [isLoading, setIsLoading] = useState(false);
   const timerId = useRef(-1);
 
-  console.log(timerId.current);
-
   const fetchData = async () => {
     if (isLoading) return;
 
@@ -50,7 +48,6 @@ export const TokenBookmarkedListPanel = () => {
       }
     }
 
-    console.log(newData);
     if (timerId.current >= 0) clearTimeout(timerId.current);
     timerId.current = setTimeout(() => {
       setData(newData);
