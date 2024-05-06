@@ -29,20 +29,23 @@ export const TokenBookmarkedListPanel = () => {
       );
     } else {
       try {
-        const axiosResponse = await axiosClient.get(
-          "https://api.coingecko.com/api/v3/coins/markets",
-          {
-            params: {
-              vs_currency: "krw",
-              order: "market_cap_desc",
-              ids: bookmarks.toString(),
-              sparkline: false,
-              price_change_percentage: "1h,24h,7d",
-              precision: 2,
-            },
-          }
-        );
-        newData = axiosResponse.data;
+        const pages = Math.floor(bookmarks.length / 100);
+        for (let i = 0; i <= pages; i++) {
+          const axiosResponse = await axiosClient.get(
+            "https://api.coingecko.com/api/v3/coins/markets",
+            {
+              params: {
+                vs_currency: "krw",
+                order: "market_cap_desc",
+                ids: bookmarks.slice(i * 100, i * 100 + 100).toString(),
+                sparkline: false,
+                price_change_percentage: "1h,24h,7d",
+                precision: 2,
+              },
+            }
+          );
+          newData.push(...axiosResponse.data);
+        }
       } catch {
         navigate("/error");
       }
