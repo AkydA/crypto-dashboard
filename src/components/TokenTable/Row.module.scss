@@ -1,0 +1,78 @@
+.token-info-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem;
+
+  border-bottom: 1px solid rgba(grey, 0.2);
+
+  font-weight: 600;
+
+  cursor: default;
+
+  @media (max-width: 720px) {
+    padding: 1rem 0.5rem;
+  }
+
+  &:hover {
+    background-color: rgba(grey, 0.1);
+  }
+
+  .asset {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .icon {
+      width: 2rem;
+      border-radius: 1rem;
+      padding: 0.5rem;
+
+      @media (max-width: 720px) {
+        width: 1.5rem;
+        padding: 0.25rem;
+      }
+    }
+
+    .name-symbol {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      @media (max-width: 900px) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .name {
+        flex: 1;
+      }
+
+      .symbol {
+        width: "fit-content";
+        text-align: left;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .change {
+    text-align: right;
+  }
+
+  .price {
+    text-align: right;
+  }
+
+  .mobile-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
