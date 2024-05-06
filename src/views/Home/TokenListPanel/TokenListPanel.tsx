@@ -61,7 +61,7 @@ export const TokenListPanel = () => {
         if (more) setData([...data, ...newData]);
         else setData(newData);
         setIsLoading(false);
-      }, 1000);
+      }, 0);
     },
     [isLoading, pageSize, data, currency]
   );
