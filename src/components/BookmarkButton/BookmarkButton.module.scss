@@ -1,0 +1,28 @@
+.bookmark-button-toast {
+  z-index: 10;
+  position: absolute;
+  top: 2.5rem;
+  left: 3.5rem;
+
+  box-sizing: border-box;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+
+  border-radius: 0.5rem;
+  border: 2px solid lightseagreen;
+  background-color: lightgreen;
+
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-wrap: nowrap;
+
+  &.hidden {
+    display: none;
+    opacity: 0;
+  }
+
+  &.remove {
+    border-color: red;
+    background-color: salmon;
+  }
+}
