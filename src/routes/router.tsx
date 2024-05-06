@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 
+import { Error } from "~/views/Error";
 import { Home } from "~/views/Home";
 import { TokenBookmarkedListPanel } from "~/views/Home/TokenBookmarkedListPanel";
 import { TokenListPanel } from "~/views/Home/TokenListPanel";
@@ -18,6 +19,10 @@ export const router = createBrowserRouter([
   {
     path: "/token/:tokenId",
     element: <TokenDetails />,
+  },
+  {
+    path: "/error",
+    element: <Error />,
   },
   {
     path: "/*",

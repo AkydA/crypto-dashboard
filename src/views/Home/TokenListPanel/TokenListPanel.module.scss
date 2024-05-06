@@ -1,3 +1,48 @@
 .token-list-panel {
   width: 100%;
+
+  .filter-panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    gap: 1rem;
+
+    padding: 0.5rem 1rem;
+  }
+
+  .loading-wrapper {
+    position: fixed;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+    background-color: rgba(white, 0.7);
+  }
+
+  .more-button {
+    width: 100%;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    background-color: transparent;
+    border: none;
+    border-top: 1px solid rgba(grey, 0.2);
+    border-bottom: 1px solid rgba(grey, 0.2);
+    color: black;
+
+    font-size: 1rem;
+
+    &:hover {
+      background-color: rgba(grey, 0.1);
+      cursor: pointer;
+    }
+
+    &:active {
+      background-color: rgba(grey, 0.3);
+    }
+  }
 }
