@@ -28,30 +28,32 @@ export const NumberInputBox: React.FC<INumberInputBoxProps> = ({
     if (enable) {
       // handle input '.'
       let lastDot = false;
+      let fractionEndZero = false;
       if (e.target.value.endsWith(".")) lastDot = true;
+      if (e.target.value.includes(".") && e.target.value.endsWith("0"))
+        fractionEndZero = true;
 
       const amount = getNumber(e.target.value);
 
       // handle input NaN, '+', '-', 'e'
-      if (
-        isNaN(amount) ||
-        e.target.value === "" ||
-        e.target.value.includes("-")
-      ) {
+      if (e.target.value === "" || e.target.value.includes("-")) {
         updateValue("");
         return;
       }
 
+      const fractionDigits =
+        e.target.value.length - 1 - e.target.value.indexOf(".");
       if (
-        e.target.value.includes(".") &&
-        e.target.value.length - e.target.value.indexOf(".") > accuracy + 1
+        isNaN(amount) ||
+        (e.target.value.includes(".") && fractionDigits > accuracy)
       )
         return;
 
       updateValue(
-        `${amount.toLocaleString("en", { maximumFractionDigits: accuracy })}${
-          lastDot ? "." : ""
-        }`
+        `${amount.toLocaleString("en", {
+          maximumFractionDigits: accuracy,
+          minimumFractionDigits: fractionEndZero ? fractionDigits : 0,
+        })}${lastDot ? "." : ""}`
       );
     }
   };
