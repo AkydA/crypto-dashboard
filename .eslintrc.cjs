@@ -1,10 +1,9 @@
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
-  plugins: ["react", "react-refresh", "@typescript-eslint", "css-import-order"],
+  plugins: ["react-refresh", "@typescript-eslint", "css-import-order"],
   extends: [
     "eslint:recommended",
-    "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended",
     "plugin:css-import-order/recommended",
@@ -15,6 +14,7 @@ module.exports = {
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
   rules: {
+    "react/react-in-jsx-scope": 0,
     "react-refresh/only-export-components": [
       "warn",
       { allowConstantExport: true },
@@ -65,5 +65,12 @@ module.exports = {
         warnOnUnassignedImports: true,
       },
     ],
+  },
+  settings: {
+    "import/resolver": {
+      typescript: {
+        alwaysTryTypes: true,
+      },
+    },
   },
 };
