@@ -1,5 +1,6 @@
-import { useMediaQuery } from "@mui/material";
 import React from "react";
+
+import { useMediaQuery } from "~/hooks/useMediaQuery";
 
 import { COLUMN_RATIO, COLUMN_RATIO_MOBILE, Row } from "./Row";
 import { TokenInfo } from "./type";

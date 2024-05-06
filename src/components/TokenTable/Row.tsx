@@ -1,10 +1,10 @@
-import { useMediaQuery } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import { BookmarkButton } from "~/components/BookmarkButton";
 import { PercentageNumber } from "~/components/PercentageNumber";
 import { PriceNumber } from "~/components/PriceNumber";
+import { useMediaQuery } from "~/hooks/useMediaQuery";
 
 import { TokenInfo } from "./type";
 

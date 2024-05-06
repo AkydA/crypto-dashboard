@@ -1,3 +1,39 @@
+.bookmark-button {
+  position: relative;
+  box-sizing: border-box;
+  height: 2.5rem;
+  width: 2.5rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+
+  font-size: 1.5rem;
+
+  &:hover {
+    background-color: rgba(grey, 0.1);
+    cursor: pointer;
+  }
+
+  &:active {
+    background-color: rgba(grey, 0.2);
+  }
+
+  &.small {
+    height: 2rem;
+    width: 2rem;
+    padding: 0.25rem;
+  }
+
+  .star {
+    color: grey;
+    &.is-marked {
+      color: orange;
+    }
+    transition: color 0.5s;
+  }
+}
+
 .bookmark-button-toast {
   z-index: 10;
   position: absolute;
@@ -5,7 +41,6 @@
   left: 3.5rem;
 
   box-sizing: border-box;
-  width: fit-content;
   padding: 0.5rem 1rem;
 
   border-radius: 0.5rem;

@@ -1,8 +1,7 @@
-import { Star } from "@mui/icons-material";
-import { IconButton } from "@mui/material";
 import clsx from "clsx";
 import React, { useRef, useState } from "react";
 
+import Star from "~/assets/star.svg?react";
 import { useBookmarks } from "~/hooks/useBookmark";
 
 import S from "./BookmarkButton.module.scss";
@@ -11,7 +10,7 @@ export const TOAST_DURATION = 1200;
 
 interface BookmarkButtonProps {
   id: string;
-  size?: "large" | "medium" | "small";
+  size?: "medium" | "small";
 }
 
 export const BookmarkButton: React.FC<BookmarkButtonProps> = ({
@@ -25,8 +24,8 @@ export const BookmarkButton: React.FC<BookmarkButtonProps> = ({
   const timerId = useRef(-1);
 
   return (
-    <IconButton
-      size={size}
+    <button
+      className={clsx(S["bookmark-button"], { [S.small]: size === "small" })}
       onClick={(e) => {
         isMarked ? removeBookmark(id) : addBookmark(id);
         setShowToast(true);
@@ -35,7 +34,7 @@ export const BookmarkButton: React.FC<BookmarkButtonProps> = ({
         e.stopPropagation();
       }}
     >
-      <Star sx={{ color: isMarked ? "orange" : "lightgrey" }} />
+      <Star className={clsx(S.star, { [S["is-marked"]]: isMarked })} />
       <div
         className={clsx(S["bookmark-button-toast"], {
           [S.hidden]: !showToast,
@@ -44,6 +43,6 @@ export const BookmarkButton: React.FC<BookmarkButtonProps> = ({
       >
         {isMarked ? "북마크가 추가되었습니다." : "북마크가 해제되었습니다."}
       </div>
-    </IconButton>
+    </button>
   );
 };

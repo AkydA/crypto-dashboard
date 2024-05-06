@@ -42,7 +42,7 @@ export const TokenBookmarkedListPanel = () => {
             },
           }
         );
-        newData = await axiosResponse.data;
+        newData = axiosResponse.data;
       } catch {
         navigate("/error");
       }

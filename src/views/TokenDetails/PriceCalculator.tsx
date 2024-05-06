@@ -1,11 +1,9 @@
-import {
-  SwapHorizontalCircleOutlined,
-  SwapVerticalCircleOutlined,
-} from "@mui/icons-material";
-import { useMediaQuery } from "@mui/material";
 import React, { useMemo, useState } from "react";
 
+import SwapHorizontal from "~/assets/swapHorizontal.svg?react";
+import SwapVertical from "~/assets/swapVertical.svg?react";
 import { NumberInputBox } from "~/components/NumberInputBox";
+import { useMediaQuery } from "~/hooks/useMediaQuery";
 
 import S from "./PriceCalculator.module.scss";
 
@@ -59,9 +57,9 @@ export const PriceCalculator: React.FC<PriceCalculatorProps> = ({
           />
         </div>
         {isMobile ? (
-          <SwapVerticalCircleOutlined />
+          <SwapVertical className={S["swap-icon"]} />
         ) : (
-          <SwapHorizontalCircleOutlined />
+          <SwapHorizontal className={S["swap-icon"]} />
         )}
         <div className={S["input-wrapper"]}>
           <div className={S["input-title"]}>{currency.toUpperCase()}</div>
