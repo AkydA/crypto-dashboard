@@ -1,4 +1,133 @@
 .token-details {
   box-sizing: border-box;
   padding: 1rem;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1rem 0;
+
+    .asset {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .icon {
+        width: 2rem;
+        margin-right: 0.5rem;
+      }
+
+      .name {
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .market-info {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem;
+    gap: 1rem;
+
+    @media (max-width: 720px) {
+      flex-direction: column-reverse;
+    }
+
+    .rank-and-web {
+      flex: 1;
+      flex-direction: column;
+      border-collapse: collapse;
+
+      td {
+        padding: 1rem;
+        border: 2px solid lightgrey;
+      }
+
+      .title {
+        background-color: rgba(lightgrey, 0.5);
+        font-weight: 700;
+      }
+    }
+
+    .market-prices {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+
+      .current-price {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        .row {
+          display: flex;
+          flex-direction: row;
+          align-items: baseline;
+          gap: 0.5rem;
+
+          .currency {
+            font-size: 1.5rem;
+            font-weight: 600;
+          }
+          .currency-per {
+            width: 4rem;
+            font-size: 1rem;
+            font-weight: 600;
+          }
+          .token {
+            font-size: 0.8rem;
+            color: grey;
+          }
+          .token-per {
+            width: 4rem;
+            font-size: 0.8rem;
+          }
+        }
+      }
+
+      .volumes {
+        display: flex;
+        flex-direction: row;
+
+        font-size: 0.8rem;
+        font-weight: 500;
+
+        .volume-item {
+          flex: 1;
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  .description-button {
+    width: 100%;
+    padding: 1rem;
+    background-color: transparent;
+    border: none;
+    color: black;
+
+    font-size: 1rem;
+
+    &:hover {
+      background-color: rgba(grey, 0.2);
+      cursor: pointer;
+    }
+
+    &:active {
+      background-color: rgba(grey, 0.4);
+    }
+  }
+
+  .description {
+    white-space: pre-wrap;
+    padding: 1rem;
+    font-weight: 500;
+  }
 }
